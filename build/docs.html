@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark Language Documentation</title>
+    <link rel="shortcut icon" href="icon.svg" type="image/svg">
+    <style>
+        :root {
+            --primary-color: #f39c12;
+            --bg-color: #1e1e1e;
+            --sidebar-bg: #252526;
+            --text-color: #d4d4d4;
+            --code-bg: #2d2d2d;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            line-height: 1.7;
+        }
+        nav {
+            width: 250px;
+            background-color: var(--sidebar-bg);
+            height: 100vh;
+            position: fixed;
+            padding: 20px;
+            border-right: 1px solid #333;
+        }
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+        }
+        main {
+            margin-left: 290px;
+            padding: 40px;
+            max-width: 900px;
+        }
+        h1, h2 { color: var(--primary-color); }
+        code {
+            background-color: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Cascadia Mono', Courier, monospace;
+        }
+        .code-block {
+            background-color: var(--code-bg);
+            padding: 15px;
+            display: block;
+            margin: 10px 0;
+            border-left: 4px solid var(--primary-color);
+            white-space: pre;
+            font-family: 'Cascadia Mono', Courier, monospace;
+            line-height: 1.3;
+        }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .comment { color: #6a9955; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="icon.svg" alt="Spark Logo" class="logo">
+            <h2>Spark Lang</h2>
+        </div>
+        <ul>
+            <li><a href="#keywords" style="color: var(--text-color); text-decoration: none;">Keywords</a></li>
+            <li><a href="#types" style="color: var(--text-color); text-decoration: none;">Data Types</a></li>
+            <li><a href="#variables" style="color: var(--text-color); text-decoration: none;">Variables</a></li>
+            <li><a href="#functions" style="color: var(--text-color); text-decoration: none;">Functions</a></li>
+            <li><a href="#inbuilt" style="color: var(--text-color); text-decoration: none;">Built-in Functions</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Spark Documentation</h1>
+        <p>Spark is a custom-built, interpreted programming language featuring dynamic typing and built-in memory management keywords.</p>
+
+        <section id="keywords">
+            <h2>Keywords</h2>
+            <p>The following reserved keywords are used in Spark:</p>
+            <code>null</code>, <code>true</code>, <code>false</code>, <code>var</code>, <code>free</code>, <code>func</code>, <code>return</code>, <code>if</code>, <code>while</code>, <code>INT</code>, <code>FLOAT</code>, <code>BOOL</code>, <code>STRING</code>.
+        </section>
+
+        <section id="types">
+            <h2>Data Types</h2>
+            <ul>
+                <li><strong>NULL</strong>: Represented by the <code>null</code> keyword.</li>
+                <li><strong>BOOL</strong>: Boolean values <code>true</code> and <code>false</code>.</li>
+                <li><strong>NUMBER</strong>: Supports both Integers and Floats.</li>
+                <li><strong>STRING</strong>: Text enclosed in single or double quotes.</li>
+                <li><strong>ARRAY</strong>: Sequential data containers.</li>
+            </ul>
+        </section>
+
+        <section id="variables">
+            <h2>Variable Management</h2>
+            <p>Variables are declared using <code>var</code> and can be manually cleared from memory using <code>free</code>.</p>
+            <div class="code-block"><span class="keyword">var</span> x = <span class="string">10</span>; <span class="comment">// Declaration</span>
+x = <span class="string">20</span>;     <span class="comment">// Assignment</span>
+<span class="keyword">free</span> x;    <span class="comment">// Manual memory release</span>
+</div>
+        </section>
+
+        <section id="functions">
+            <h2>Function Management</h2>
+            <p>Functions are declared using <code>func</code> and can be manually cleared from memory using <code>free</code>.</p>
+            <div class="code-block"><span class="keyword">func</span> greet(variation) { <span class="comment">// Declaration</span>
+    <span class="keyword">if</span> variation == 0 {
+        print(<span class="string">"Hello!"</span>);
+    }
+    <span class="keyword">if</span> variation == 1 {
+        print(<span class="string">"Hi!"</span>);
+    }
+    <span class="keyword">if</span> variation == 2 {
+        print(<span class="string">"Welcome!"</span>);
+    }
+}
+
+greet(0); <span class="comment">// Call</span>
+greet(1); <span class="comment">// Call</span>
+greet(2); <span class="comment">// Call</span>
+</div>
+        </section>
+
+        <section id="inbuilt">
+            <h2>Built-in Functions</h2>
+            <p>Spark comes with several built-in utilities:</p>
+            <ul>
+                <li><code>print(...)</code>: Outputs values to the console.</li>
+                <li><code>printf(format, ...)</code>: Formatted output using <code>%s</code>, <code>%d</code>, or <code>%f</code> templates.</li>
+                <li><code>input(...)</code>: Prompts the user for input.</li>
+                <li><code>cSet(container, idx, value)</code>: Sets a value in a container at the index.</li>
+                <li><code>cGet(container, idx)</code>: Gets a value from a container at the index.</li>
+                <li><code>cAdd(container, value)</code>: Appends a value to a container.</li>
+                <li><code>cLength(container)</code>: Returns the length of an array or string.</li>
+                <li><code>cContains(container, value)</code>: Returns if a value is in a container.</li>
+                <li><code>strStrip(string)</code>: Strips the string of whitespace on the right and left.</li>
+                <li><code>hash(value)</code>: Returns the hash of a value.</li>
+                <li><code>repr(value)</code>: Returns the code representation of a value.</li>
+                <li><code>exit()</code>: Halts program execution.</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
